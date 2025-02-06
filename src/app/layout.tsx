@@ -1,5 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const nanumSquare = localFont({
+  src: [
+    {
+      path: "../../public/fonts/NanumSquareR.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/NanumSquareB.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/NanumSquareB.ttf",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+});
 
 export const metadata: Metadata = {
   title: "Todo List",
@@ -13,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body>{children}</body>
+      <body className={nanumSquare.className}>{children}</body>
     </html>
   );
 }

@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+.text-20-bold {
+    @apply text-[20px] font-bold;
+  }
+
+  .text-18-bold {
+    @apply text-[18px] font-bold;
+  }
+
+  .text-16-extrabold {
+    @apply text-[16px] font-extrabold;
+  }
+
+  .text-16-bold {
+    @apply text-[16px] font-bold;
+  }
+
+  .text-16-regular {
+    @apply text-[16px] font-normal;
+  }
+}
