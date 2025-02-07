@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import localFont from "next/font/local";
+import GNB from "@/components/layout/GNB";
 
 const nanumSquare = localFont({
   src: [
@@ -34,7 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body className={nanumSquare.className}>{children}</body>
+      <body className={nanumSquare.className}>
+        <GNB />
+        {children}
+      </body>
     </html>
   );
 }

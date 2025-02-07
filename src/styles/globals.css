@@ -10,7 +10,7 @@
     }
 
   .container-layout {
-    @apply max-w-[1200px] mx-auto;
+    @apply max-w-[1200px] h-full mx-auto;
   }
 }
 
