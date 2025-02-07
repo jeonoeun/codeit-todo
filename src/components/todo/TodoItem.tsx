@@ -1,9 +1,9 @@
 import Image from "next/image";
-import TodoInput from "./TodoInput";
+import Input from "../common/Input";
+import clsx from "clsx";
 
 import checkbox from "../../../public/icons/checkbox.svg";
 import checkbox_done from "../../../public/icons/checkbox_done.svg";
-import clsx from "clsx";
 
 interface TodoItemProps {
   mode: "list" | "detail" | "add";
@@ -25,7 +25,7 @@ const TodoItem = ({ mode, value, checked }: TodoItemProps) => {
           />
         </button>
       )}
-      <TodoInput mode={mode} value={value} checked={checked} />
+      <Input mode={mode} value={value} checked={checked} />
     </div>
   );
 };

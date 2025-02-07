@@ -3,16 +3,16 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-interface TodoInputProps {
+interface InputProps {
   mode: "list" | "detail" | "add";
   value: string;
   checked?: boolean;
 }
 
-const TodoInput = ({ mode, value, checked }: TodoInputProps) => {
+const Input = ({ mode, value, checked }: InputProps) => {
   const [inputValue, setInputValue] = useState(value);
 
-  const onTodoInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
@@ -20,7 +20,7 @@ const TodoInput = ({ mode, value, checked }: TodoInputProps) => {
     <input
       type="text"
       value={inputValue}
-      onChange={onTodoInputChange}
+      onChange={handleChange}
       placeholder={mode === "add" ? "할 일을 입력해주세요" : undefined}
       className={clsx(
         "input-base",
@@ -31,4 +31,4 @@ const TodoInput = ({ mode, value, checked }: TodoInputProps) => {
   );
 };
 
-export default TodoInput;
+export default Input;
