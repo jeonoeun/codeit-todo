@@ -1,5 +1,5 @@
 .btn-base {
-    @apply flex items-center justify-center text-16-bold rounded-full
+    @apply flex items-center justify-center text-16-bold rounded-[24px] tablet:rounded-full
 }
 
 .btn-slate {
@@ -20,4 +20,12 @@
 
 .btn-dark {
     @apply bg-slate-900 bg-opacity-50;
+}
+
+.btn-submit {
+    @apply w-[56px] h-[56px] shadow-[4px_4px_0px_#0F172A] tablet:w-[168px] 
+}
+
+.btn-button {
+    @apply w-[64px] h-[64px]
 }
