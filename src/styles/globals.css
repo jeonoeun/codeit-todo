@@ -4,6 +4,12 @@
 
 @import "./button.css";
 
+@layer components {
+  .container-layout {
+    @apply max-w-[1200px] mx-auto px-[16px] tablet:px-[24px] desktop:px-0;
+  }
+}
+
 @layer utilities {
 .text-20-bold {
     @apply text-[20px] font-bold;

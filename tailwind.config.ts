@@ -32,6 +32,10 @@ export default {
           800: "#92400E",
         },
       },
+      screens: {
+        tablet: "744px",
+        desktop: "1024px",
+      },
     },
   },
   plugins: [],
