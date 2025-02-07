@@ -5,8 +5,12 @@
 @import "./button.css";
 
 @layer components {
+  .wrapper {
+      @apply w-full px-[16px] tablet:px-[24px];
+    }
+
   .container-layout {
-    @apply max-w-[1200px] mx-auto px-[16px] tablet:px-[24px] desktop:px-0;
+    @apply max-w-[1200px] mx-auto;
   }
 }
 
@@ -30,4 +34,8 @@
   .text-16-regular {
     @apply text-[16px] font-normal;
   }
+}
+
+* {
+  outline: 1px solid #f00;
 }
