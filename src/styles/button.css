@@ -1,0 +1,23 @@
+.btn-base {
+    @apply flex items-center justify-center text-16-bold rounded-full
+}
+
+.btn-slate {
+    @apply bg-slate-200 text-slate-900
+}
+
+.btn-violet {
+    @apply bg-violet-600 text-white
+}
+
+.btn-rose {
+    @apply bg-rose-500 text-white
+}
+
+.btn-lime {
+    @apply bg-lime-300 text-slate-900
+}
+
+.btn-dark {
+    @apply bg-slate-900 bg-opacity-50;
+}

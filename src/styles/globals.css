@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./button.css";
+
 @layer utilities {
 .text-20-bold {
     @apply text-[20px] font-bold;

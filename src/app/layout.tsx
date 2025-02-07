@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
 import localFont from "next/font/local";
 
 const nanumSquare = localFont({
