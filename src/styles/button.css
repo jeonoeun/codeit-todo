@@ -3,7 +3,7 @@
 }
 
 .btn-slate {
-    @apply bg-slate-200 text-slate-900
+    @apply bg-slate-200
 }
 
 .btn-violet {
@@ -15,7 +15,7 @@
 }
 
 .btn-lime {
-    @apply bg-lime-300 text-slate-900
+    @apply bg-lime-300
 }
 
 .btn-dark {

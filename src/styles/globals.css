@@ -5,9 +5,13 @@
 @import "./button.css";
 @import "./todo.css";
 
+body {
+  @apply bg-gray-50 text-slate-900;
+}
+
 @layer components {
   .wrapper {
-      @apply w-full px-[16px] tablet:px-[24px];
+      @apply w-full p-[16px] tablet:p-[24px];
     }
 
   .container-layout {
