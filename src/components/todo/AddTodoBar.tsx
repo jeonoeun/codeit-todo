@@ -1,15 +1,35 @@
+"use client";
+
+import { useState } from "react";
 import Button from "../common/Button";
 import TodoItem from "./TodoItem";
 
 import plus_black from "../../../public/icons/plus_black.svg";
+import { addTodo } from "@/apis/todoApi";
 
 const AddTodoBar = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleAddTodo = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!inputValue.trim()) return;
+
+    try {
+      await addTodo(inputValue);
+      setInputValue("");
+    } catch (error) {
+      console.error(`할 일 추가 실패: ${error}`);
+      alert("❌ 할 일을 추가하는 중 오류가 발생했어요. 다시 시도해 주세요.");
+    }
+  };
+
   return (
     <form
-      action=""
+      onSubmit={handleAddTodo}
       className="flex items-center gap-[8px] tablet:gap-[16px] mb-[24px] tablet:mb-[40px]"
     >
-      <TodoItem mode="add" text="" />
+      <TodoItem mode="add" text={inputValue} onChange={setInputValue} />
       <Button
         type="submit"
         text="추가하기"
