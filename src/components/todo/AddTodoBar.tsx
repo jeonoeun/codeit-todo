@@ -29,7 +29,7 @@ const AddTodoBar = () => {
       onSubmit={handleAddTodo}
       className="flex items-center gap-[8px] tablet:gap-[16px] mb-[24px] tablet:mb-[40px]"
     >
-      <TodoItem mode="add" text={inputValue} onChange={setInputValue} />
+      <TodoItem mode="add" name={inputValue} onChange={setInputValue} />
       <Button
         type="submit"
         text="추가하기"

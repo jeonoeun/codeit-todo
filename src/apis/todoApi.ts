@@ -1,7 +1,9 @@
+import { Todo } from "@/types/todo";
+
 const BASE_URL = "https://assignment-todolist-api.vercel.app/api";
 const TENANT_ID = "jeonoeun";
 
-export const addTodo = async (name: string) => {
+export const addTodo = async (name: string): Promise<Todo> => {
   try {
     const res = await fetch(`${BASE_URL}/${TENANT_ID}/items`, {
       method: "POST",

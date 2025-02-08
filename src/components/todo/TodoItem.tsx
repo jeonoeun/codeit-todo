@@ -7,25 +7,35 @@ import checkbox_done from "../../../public/icons/checkbox_done.svg";
 
 interface TodoItemProps {
   mode: "list" | "detail" | "add";
-  text: string;
-  checked?: boolean;
+  name: string;
+  isCompleted?: boolean;
+  onChange?: (value: string) => void;
 }
 
-const TodoItem = ({ mode, text, checked }: TodoItemProps) => {
+const TodoItem = ({ mode, name, isCompleted, onChange }: TodoItemProps) => {
   const bgColor =
-    mode === "add" ? "bg-slate-100" : checked ? "bg-violet-100" : "bg-white";
+    mode === "add"
+      ? "bg-slate-100"
+      : isCompleted
+      ? "bg-violet-100"
+      : "bg-white";
 
   return (
     <div className={clsx("todo-item", `todo-${mode}`, bgColor)}>
       {mode !== "add" && (
         <button>
           <Image
-            src={checked ? checkbox_done : checkbox}
-            alt={checked ? "완료된 할 일" : "할 일 미완료"}
+            src={isCompleted ? checkbox_done : checkbox}
+            alt={isCompleted ? "완료된 할 일" : "할 일 미완료"}
           />
         </button>
       )}
-      <Input mode={mode} text={text} checked={checked} />
+      <Input
+        mode={mode}
+        text={name}
+        isCompleted={isCompleted}
+        onChange={onChange}
+      />
     </div>
   );
 };

@@ -4,12 +4,7 @@ import EmptyList from "./EmptyList";
 
 import done from "../../../public/images/done.svg";
 import todo from "../../../public/images/todo.svg";
-
-interface Todo {
-  id: number;
-  text: string;
-  checked: boolean;
-}
+import { Todo } from "@/types/todo";
 
 interface TodoListProps {
   status: "todo" | "done";
