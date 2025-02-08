@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import Button from "../common/Button";
 import TodoItem from "./TodoItem";
 
@@ -9,7 +9,7 @@ import { addTodo } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
 
 interface AddTodoBarProps {
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
 const AddTodoBar = ({ setTodos }: AddTodoBarProps) => {
@@ -35,7 +35,12 @@ const AddTodoBar = ({ setTodos }: AddTodoBarProps) => {
       onSubmit={handleAddTodo}
       className="flex items-center gap-[8px] tablet:gap-[16px] mb-[24px] tablet:mb-[40px]"
     >
-      <TodoItem mode="add" name={inputValue} onChange={setInputValue} />
+      <TodoItem
+        mode="add"
+        name={inputValue}
+        onChange={setInputValue}
+        setTodos={setTodos}
+      />
       <Button
         type="submit"
         text="추가하기"

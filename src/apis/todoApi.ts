@@ -38,3 +38,25 @@ export const addTodo = async (name: string): Promise<Todo> => {
     throw error;
   }
 };
+
+export const updateTodo = async (
+  id: number,
+  updates: Partial<Todo>
+): Promise<Todo> => {
+  try {
+    const res = await fetch(`${BASE_URL}/${TENANT_ID}/items/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updates),
+    });
+
+    if (!res.ok) {
+      const errorMessage = await res.text();
+      throw new Error(errorMessage);
+    }
+
+    return res.json();
+  } catch (error) {
+    throw error;
+  }
+};

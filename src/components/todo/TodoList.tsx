@@ -1,17 +1,19 @@
+import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import TodoItem from "./TodoItem";
 import EmptyList from "./EmptyList";
+import { Todo } from "@/types/todo";
 
 import done from "../../../public/images/done.svg";
 import todo from "../../../public/images/todo.svg";
-import { Todo } from "@/types/todo";
 
 interface TodoListProps {
   status: "todo" | "done";
   todos: Todo[];
+  setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-const TodoList = ({ status, todos }: TodoListProps) => {
+const TodoList = ({ status, todos, setTodos }: TodoListProps) => {
   return (
     <div className="flex-1">
       <Image
@@ -26,7 +28,7 @@ const TodoList = ({ status, todos }: TodoListProps) => {
       <ul className="flex flex-col gap-[16px]">
         {todos.map((todo) => (
           <li key={todo.id}>
-            <TodoItem mode="list" {...todo} />
+            <TodoItem mode="list" {...todo} setTodos={setTodos} />
           </li>
         ))}
       </ul>
