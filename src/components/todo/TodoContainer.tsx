@@ -1,20 +1,35 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import AddTodoBar from "./AddTodoBar";
 import TodoList from "./TodoList";
-
-const todos = [
-  { id: 1, text: "비타민 챙겨먹기", checked: true },
-  { id: 2, text: "개발하기", checked: true },
-  { id: 3, text: "더보이즈 콘서트 가기", checked: true },
-  { id: 4, text: "밥 먹기", checked: true },
-];
+import { getTodos } from "@/apis/todoApi";
+import { Todo } from "@/types/todo";
 
 const TodoContainer = () => {
-  const pendingTodos = todos.filter((todo) => !todo.checked);
-  const doneTodos = todos.filter((todo) => todo.checked);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const fetchTodos = async () => {
+    try {
+      const items = await getTodos();
+      setTodos(items);
+    } catch (error) {
+      console.error("❌ 할 일 목록 가져오기 실패:", error);
+      alert("할 일 목록 가져오기에 실패했습니다. 다시 시도해주세요.");
+      setTodos([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  const pendingTodos = todos.filter((todo) => !todo.isCompleted);
+  const doneTodos = todos.filter((todo) => todo.isCompleted);
 
   return (
     <>
-      <AddTodoBar />
+      <AddTodoBar setTodos={setTodos} />
       <div className="flex flex-col tablet:flex-row gap-[48px] tablet:gap-[24px]">
         <TodoList status="todo" todos={pendingTodos} />
         <TodoList status="done" todos={doneTodos} />

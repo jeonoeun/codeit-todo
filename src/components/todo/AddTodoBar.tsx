@@ -6,8 +6,13 @@ import TodoItem from "./TodoItem";
 
 import plus_black from "../../../public/icons/plus_black.svg";
 import { addTodo } from "@/apis/todoApi";
+import { Todo } from "@/types/todo";
 
-const AddTodoBar = () => {
+interface AddTodoBarProps {
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+}
+
+const AddTodoBar = ({ setTodos }: AddTodoBarProps) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleAddTodo = async (e: React.FormEvent) => {
@@ -16,10 +21,11 @@ const AddTodoBar = () => {
     if (!inputValue.trim()) return;
 
     try {
-      await addTodo(inputValue);
+      const todo = await addTodo(inputValue);
       setInputValue("");
+      setTodos((prevTodos) => [todo, ...prevTodos]);
     } catch (error) {
-      console.error(`할 일 추가 실패: ${error}`);
+      console.error("할 일 추가 실패:", error);
       alert("❌ 할 일을 추가하는 중 오류가 발생했어요. 다시 시도해 주세요.");
     }
   };
