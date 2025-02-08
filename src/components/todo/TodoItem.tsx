@@ -1,17 +1,17 @@
 import Image from "next/image";
-import Input from "../common/Input";
 import clsx from "clsx";
+import Input from "../common/Input";
 
 import checkbox from "../../../public/icons/checkbox.svg";
 import checkbox_done from "../../../public/icons/checkbox_done.svg";
 
 interface TodoItemProps {
   mode: "list" | "detail" | "add";
-  value: string;
+  text: string;
   checked?: boolean;
 }
 
-const TodoItem = ({ mode, value, checked }: TodoItemProps) => {
+const TodoItem = ({ mode, text, checked }: TodoItemProps) => {
   const bgColor =
     mode === "add" ? "bg-slate-100" : checked ? "bg-violet-100" : "bg-white";
 
@@ -25,7 +25,7 @@ const TodoItem = ({ mode, value, checked }: TodoItemProps) => {
           />
         </button>
       )}
-      <Input mode={mode} value={value} checked={checked} />
+      <Input mode={mode} text={text} checked={checked} />
     </div>
   );
 };

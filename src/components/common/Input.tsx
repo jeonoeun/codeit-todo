@@ -1,16 +1,16 @@
 "use client";
 
-import clsx from "clsx";
 import { useState } from "react";
+import clsx from "clsx";
 
 interface InputProps {
   mode: "list" | "detail" | "add";
-  value: string;
+  text: string;
   checked?: boolean;
 }
 
-const Input = ({ mode, value, checked }: InputProps) => {
-  const [inputValue, setInputValue] = useState(value);
+const Input = ({ mode, text, checked }: InputProps) => {
+  const [inputValue, setInputValue] = useState(text);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);

@@ -1,5 +1,5 @@
 .todo-item {
-    @apply flex items-center gap-[16px] border-2 border-slate-900 rounded-full overflow-hidden
+    @apply flex items-center gap-[16px] flex-grow border-2 border-slate-900 rounded-full overflow-hidden
 }
 
 .todo-list {
