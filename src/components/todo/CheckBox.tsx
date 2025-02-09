@@ -12,7 +12,11 @@ interface CheckBoxProps {
 }
 
 const CheckBox = ({ id, isCompleted, setTodos }: CheckBoxProps) => {
-  const onToggleComplete = async (id: number, isCompleted: boolean) => {
+  const toggleTodoCompletion = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.stopPropagation();
+
     try {
       const updatedTodo = await updateTodo(id, { isCompleted: !isCompleted });
       setTodos((prevTodos) =>
@@ -25,7 +29,7 @@ const CheckBox = ({ id, isCompleted, setTodos }: CheckBoxProps) => {
   };
 
   return (
-    <button onClick={() => onToggleComplete(id, isCompleted ?? false)}>
+    <button onClick={toggleTodoCompletion}>
       <Image
         src={isCompleted ? checkbox_done : checkbox}
         alt={isCompleted ? "완료된 할 일" : "할 일 미완료"}
