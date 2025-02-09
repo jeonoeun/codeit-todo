@@ -30,7 +30,7 @@ const TodoContainer = () => {
   return (
     <>
       <AddTodoBar setTodos={setTodos} />
-      <div className="flex flex-col tablet:flex-row gap-[48px] tablet:gap-[24px]">
+      <div className="grid grid-cols-1 gap-[48px] desktop:grid-cols-2 desktop:gap-[24px] overflow-hidden">
         <TodoList status="todo" todos={pendingTodos} setTodos={setTodos} />
         <TodoList status="done" todos={doneTodos} setTodos={setTodos} />
       </div>
