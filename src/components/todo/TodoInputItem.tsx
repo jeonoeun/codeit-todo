@@ -6,7 +6,7 @@ import { Dispatch, SetStateAction } from "react";
 import CheckBox from "./CheckBox";
 
 interface TodoItemProps {
-  mode: "list" | "detail" | "add";
+  mode: "detail" | "add";
   id?: number;
   name: string;
   isCompleted?: boolean;
@@ -14,7 +14,7 @@ interface TodoItemProps {
   setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-const TodoItem = ({
+const TodoInputItem = ({
   mode,
   id,
   name,
@@ -27,25 +27,16 @@ const TodoItem = ({
       className={clsx(
         "todo-item",
         `todo-${mode}`,
-        mode === "add"
-          ? "bg-slate-100"
-          : isCompleted
-          ? "bg-violet-100"
-          : "bg-white"
+        isCompleted ? "bg-violet-100" : "bg-white"
       )}
     >
       {mode !== "add" && id !== undefined && isCompleted !== undefined && (
         <CheckBox id={id} isCompleted={isCompleted} setTodos={setTodos} />
       )}
 
-      <Input
-        mode={mode}
-        text={name}
-        isCompleted={isCompleted}
-        onChange={onChange}
-      />
+      <Input mode={mode} text={name} onChange={onChange} />
     </div>
   );
 };
 
-export default TodoItem;
+export default TodoInputItem;

@@ -1,9 +1,9 @@
 .todo-item {
-    @apply flex items-center gap-[16px] flex-grow border-2 border-slate-900 rounded-full overflow-hidden
+    @apply flex items-center gap-[16px] flex-grow border-2 border-slate-900 rounded-full
 }
 
 .todo-list {
-    @apply px-[12px] py-[9px]
+    @apply px-[12px] py-[9px] cursor-pointer
 }
 
 .todo-detail {
@@ -11,7 +11,7 @@
 }
 
 .todo-add {
-    @apply h-[56px] shadow-[4px_4px_0px_#0F172A] px-[24px] py-[17px]
+    @apply h-[56px] shadow-[4px_4px_0px_#0F172A] px-[24px] py-[17px] bg-slate-100
 }
 
 .input-base {

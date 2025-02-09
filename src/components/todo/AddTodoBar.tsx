@@ -2,11 +2,11 @@
 
 import { Dispatch, SetStateAction, useState } from "react";
 import Button from "../common/Button";
-import TodoItem from "./TodoItem";
 
 import plus_black from "../../../public/icons/plus_black.svg";
 import { addTodo } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
+import TodoInputItem from "./TodoInputItem";
 
 interface AddTodoBarProps {
   setTodos: Dispatch<SetStateAction<Todo[]>>;
@@ -35,7 +35,7 @@ const AddTodoBar = ({ setTodos }: AddTodoBarProps) => {
       onSubmit={handleAddTodo}
       className="flex items-center gap-[8px] tablet:gap-[16px] mb-[24px] tablet:mb-[40px]"
     >
-      <TodoItem
+      <TodoInputItem
         mode="add"
         name={inputValue}
         onChange={setInputValue}
