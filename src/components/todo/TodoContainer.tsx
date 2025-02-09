@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AddTodoBar from "./AddTodoBar";
+import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import { getTodos } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
@@ -29,7 +29,7 @@ const TodoContainer = () => {
 
   return (
     <>
-      <AddTodoBar setTodos={setTodos} />
+      <AddTodoForm setTodos={setTodos} />
       <div className="grid grid-cols-1 gap-[48px] desktop:grid-cols-2 desktop:gap-[24px] overflow-hidden">
         <TodoList status="todo" todos={pendingTodos} setTodos={setTodos} />
         <TodoList status="done" todos={doneTodos} setTodos={setTodos} />

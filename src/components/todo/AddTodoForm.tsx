@@ -6,13 +6,13 @@ import Button from "../common/Button";
 import plus_black from "../../../public/icons/plus_black.svg";
 import { addTodo } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
-import TodoInputItem from "./TodoInputItem";
+import TodoAddInput from "./TodoAddInput";
 
-interface AddTodoBarProps {
+interface AddTodoFormProps {
   setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-const AddTodoBar = ({ setTodos }: AddTodoBarProps) => {
+const AddTodoForm = ({ setTodos }: AddTodoFormProps) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleAddTodo = async (e: React.FormEvent) => {
@@ -35,12 +35,7 @@ const AddTodoBar = ({ setTodos }: AddTodoBarProps) => {
       onSubmit={handleAddTodo}
       className="flex items-center gap-[8px] tablet:gap-[16px] mb-[24px] tablet:mb-[40px]"
     >
-      <TodoInputItem
-        mode="add"
-        name={inputValue}
-        onChange={setInputValue}
-        setTodos={setTodos}
-      />
+      <TodoAddInput name={inputValue} onChange={setInputValue} />
       <Button
         type="submit"
         text="추가하기"
@@ -52,4 +47,4 @@ const AddTodoBar = ({ setTodos }: AddTodoBarProps) => {
   );
 };
 
-export default AddTodoBar;
+export default AddTodoForm;
