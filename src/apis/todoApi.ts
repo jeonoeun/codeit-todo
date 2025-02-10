@@ -60,3 +60,37 @@ export const updateTodo = async (
     throw error;
   }
 };
+
+export const getTodoById = async (id: number) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${TENANT_ID}/items/${id}`, {
+      method: "GET",
+    });
+
+    if (!res.ok) {
+      const errorMessage = await res.text();
+      throw new Error(errorMessage);
+    }
+
+    return await res.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteTodo = async (id: number) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${TENANT_ID}/items/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      const errorMessage = await res.text();
+      throw new Error(errorMessage);
+    }
+
+    return await res.json();
+  } catch (error) {
+    throw error;
+  }
+};
