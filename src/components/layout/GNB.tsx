@@ -6,7 +6,7 @@ import Link from "next/link";
 const GNB = () => {
   return (
     <nav className="wrapper border-b border-slate-200 h-[60px] bg-white py-0">
-      <div className="container-layout flex items-center">
+      <div className="container-layout flex items-center py-0">
         <Link href="/">
           {/* 데스크탑, 태블릿 */}
           <Image
