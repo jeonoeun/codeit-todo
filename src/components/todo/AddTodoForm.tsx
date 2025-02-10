@@ -26,7 +26,7 @@ const AddTodoForm = ({ setTodos }: AddTodoFormProps) => {
       setTodos((prevTodos) => [todo, ...prevTodos]);
     } catch (error) {
       console.error("할 일 추가 실패:", error);
-      alert("❌ 할 일을 추가하는 중 오류가 발생했어요. 다시 시도해 주세요.");
+      alert("❌ 할 일을 추가하는 중에 오류가 발생했어요. 다시 시도해 주세요.");
     }
   };
 
@@ -38,10 +38,12 @@ const AddTodoForm = ({ setTodos }: AddTodoFormProps) => {
       <TodoAddInput name={inputValue} onChange={setInputValue} />
       <Button
         type="submit"
+        shape="square"
         text="추가하기"
         icon={plus_black}
         variant="slate"
         border
+        responsive
       />
     </form>
   );
