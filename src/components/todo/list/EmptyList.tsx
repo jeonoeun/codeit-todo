@@ -1,9 +1,8 @@
 import Image from "next/image";
-
-import todo_large from "../../../public/images/empty/todo_large.svg";
-import todo_small from "../../../public/images/empty/todo_small.svg";
-import done_large from "../../../public/images/empty/done_large.svg";
-import done_small from "../../../public/images/empty/done_small.svg";
+import todo_large from "../../../../public/images/empty/todo_large.svg";
+import todo_small from "../../../../public/images/empty/todo_small.svg";
+import done_large from "../../../../public/images/empty/done_large.svg";
+import done_small from "../../../../public/images/empty/done_small.svg";
 
 interface EmptyListProps {
   status: "todo" | "done";

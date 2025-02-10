@@ -1,8 +1,8 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import clsx from "clsx";
 import { MouseEventHandler } from "react";
+import clsx from "clsx";
 
 interface ButtonProps {
   type: "submit" | "button";

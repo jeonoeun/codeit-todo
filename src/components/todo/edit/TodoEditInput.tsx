@@ -1,7 +1,7 @@
-import clsx from "clsx";
-import Input from "../common/Input";
-import CheckBox from "../todo/CheckBox";
 import { Dispatch, SetStateAction } from "react";
+import clsx from "clsx";
+import CheckBox from "@/components/common/CheckBox";
+import Input from "@/components/common/Input";
 
 interface TodoEditInputProps {
   name: string;

@@ -1,7 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
 import logo_large from "../../../public/images/logo_large.svg";
 import logo_small from "../../../public/images/logo_small.svg";
-import Link from "next/link";
 
 const GNB = () => {
   return (

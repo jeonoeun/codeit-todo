@@ -1,5 +1,5 @@
 import Image from "next/image";
-import memoImage from "../../../public/images/memo.svg";
+import memoImage from "../../../../public/images/memo.svg";
 
 interface TodoMemoInputProps {
   todoMemo: string;

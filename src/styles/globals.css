@@ -6,21 +6,34 @@
 @import "./todo.css";
 
 body {
-  @apply bg-gray-50 text-slate-900;
+  @apply min-h-screen bg-gray-50 text-slate-900;
+}
+
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(253, 230, 138, 1);
+  border-radius: 3px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 @layer components {
   .wrapper {
-      @apply w-full p-[16px] tablet:p-[24px];
+      @apply w-full desktop:p-[24px];
     }
 
   .container-layout {
-    @apply max-w-[1200px] h-full mx-auto;
+    @apply max-w-[1200px] mx-auto h-full p-[16px] tablet:p-[24px] desktop:p-0;
   }
 }
 
 @layer utilities {
-.text-20-bold {
+  .text-20-bold {
     @apply text-[20px] font-bold;
   }
 
@@ -39,8 +52,8 @@ body {
   .text-16-regular {
     @apply text-[16px] font-normal;
   }
-}
 
-/* * {
-  outline: 1px solid #f00;
-} */
+  .min-h-main {
+    min-height: calc(100vh - 60px);
+  }
+}

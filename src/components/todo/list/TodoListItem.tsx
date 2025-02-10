@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
-import CheckBox from "./CheckBox";
 import { Todo } from "@/types/todo";
 import { useRouter } from "next/navigation";
 import { updateTodo } from "@/apis/todoApi";
+import CheckBox from "@/components/common/CheckBox";
 
 interface TodoListItemProps {
   todo: Todo;

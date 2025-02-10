@@ -1,11 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import EmptyList from "./EmptyList";
 import { Todo } from "@/types/todo";
-
-import done from "../../../public/images/done.svg";
-import todo from "../../../public/images/todo.svg";
+import done from "../../../../public/images/done.svg";
+import todo from "../../../../public/images/todo.svg";
 import TodoListItem from "./TodoListItem";
+import EmptyList from "./EmptyList";
 
 interface TodoListProps {
   status: "todo" | "done";

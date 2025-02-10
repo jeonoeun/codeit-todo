@@ -1,12 +1,11 @@
 "use client";
 
 import { Dispatch, SetStateAction, useState } from "react";
-import Button from "../common/Button";
-
-import plus_black from "../../../public/icons/plus_black.svg";
 import { addTodo } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
 import TodoAddInput from "./TodoAddInput";
+import Button from "@/components/common/Button";
+import plus_black from "../../../../public/icons/plus_black.svg";
 
 interface AddTodoFormProps {
   setTodos: Dispatch<SetStateAction<Todo[]>>;

@@ -2,14 +2,14 @@
 
 import { Todo } from "@/types/todo";
 import { useState } from "react";
-import TodoEditInput from "./TodoEditInput";
 import { updateTodo } from "@/apis/todoApi";
 import { useRouter } from "next/navigation";
+import TodoEditInput from "./TodoEditInput";
 import TodoImageInput from "./TodoImageInput";
 import TodoMemoInput from "./TodoMemoInput";
 import TodoEditActions from "./TodoEditActions";
 
-const EditTodoForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
+const TodoEditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
   const router = useRouter();
   const [todoName, setTodoName] = useState(name);
   const [todoMemo, setTodoMemo] = useState(memo ?? "");
@@ -62,4 +62,4 @@ const EditTodoForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
   );
 };
 
-export default EditTodoForm;
+export default TodoEditForm;

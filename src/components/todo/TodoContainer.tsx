@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AddTodoForm from "./AddTodoForm";
-import TodoList from "./TodoList";
 import { getTodos } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
+import AddTodoForm from "./add/AddTodoForm";
+import TodoList from "./list/TodoList";
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
