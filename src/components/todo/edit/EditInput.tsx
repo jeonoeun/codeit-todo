@@ -3,19 +3,19 @@ import clsx from "clsx";
 import CheckBox from "@/components/common/CheckBox";
 import Input from "@/components/common/Input";
 
-interface TodoEditInputProps {
+interface EditInputProps {
   name: string;
   isCompleted: boolean;
   setIsTodoCompleted: Dispatch<SetStateAction<boolean>>;
   onChange: (value: string) => void;
 }
 
-const TodoEditInput = ({
+const EditInput = ({
   name,
   isCompleted,
   setIsTodoCompleted,
   onChange,
-}: TodoEditInputProps) => {
+}: EditInputProps) => {
   const toggleCompleted = () => {
     setIsTodoCompleted((prev) => !prev);
   };
@@ -33,4 +33,4 @@ const TodoEditInput = ({
   );
 };
 
-export default TodoEditInput;
+export default EditInput;

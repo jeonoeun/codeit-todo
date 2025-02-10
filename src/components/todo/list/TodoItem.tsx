@@ -4,12 +4,12 @@ import { useRouter } from "next/navigation";
 import { updateTodo } from "@/apis/todoApi";
 import CheckBox from "@/components/common/CheckBox";
 
-interface TodoListItemProps {
+interface TodoItemProps {
   todo: Todo;
   setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-const TodoListItem = ({ todo, setTodos }: TodoListItemProps) => {
+const TodoItem = ({ todo, setTodos }: TodoItemProps) => {
   const router = useRouter();
 
   const toggleTodoStatus = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -47,4 +47,4 @@ const TodoListItem = ({ todo, setTodos }: TodoListItemProps) => {
   );
 };
 
-export default TodoListItem;
+export default TodoItem;

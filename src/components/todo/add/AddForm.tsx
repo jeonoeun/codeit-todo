@@ -3,16 +3,16 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { addTodo } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
-import TodoAddInput from "./TodoAddInput";
+import TodoAddInput from "./AddInput";
 import Button from "@/components/common/Button";
 import plus_black from "../../../../public/icons/plus_black.svg";
 import plus from "../../../../public/icons/plus.svg";
 
-interface AddTodoFormProps {
+interface AddFormProps {
   setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-const AddTodoForm = ({ setTodos }: AddTodoFormProps) => {
+const AddForm = ({ setTodos }: AddFormProps) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleAddTodo = async (e: React.FormEvent) => {
@@ -50,4 +50,4 @@ const AddTodoForm = ({ setTodos }: AddTodoFormProps) => {
   );
 };
 
-export default AddTodoForm;
+export default AddForm;

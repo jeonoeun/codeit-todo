@@ -4,12 +4,12 @@ import { Todo } from "@/types/todo";
 import { useEffect, useState } from "react";
 import { updateTodo } from "@/apis/todoApi";
 import { useRouter } from "next/navigation";
-import TodoEditInput from "./TodoEditInput";
-import TodoImageInput from "./TodoImageInput";
-import TodoMemoInput from "./TodoMemoInput";
-import TodoEditActions from "./TodoEditActions";
+import EditInput from "./EditInput";
+import ImageInput from "./ImageInput";
+import MemoInput from "./MemoInput";
+import EditActions from "./EditActions";
 
-const TodoEditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
+const EditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
   const router = useRouter();
   const [todoName, setTodoName] = useState(name);
   const [todoMemo, setTodoMemo] = useState(memo);
@@ -65,22 +65,19 @@ const TodoEditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
       onSubmit={onSubmitForm}
       className="flex flex-col gap-[16px] tablet:gap-[24px]"
     >
-      <TodoEditInput
+      <EditInput
         name={todoName}
         isCompleted={isTodoCompleted}
         setIsTodoCompleted={setIsTodoCompleted}
         onChange={setTodoName}
       />
       <div className="flex flex-col desktop:flex-row items-center justify-between gap-[16px]">
-        <TodoImageInput
-          todoImageUrl={todoImageUrl}
-          setTodoImageUrl={setTodoImageUrl}
-        />
-        <TodoMemoInput todoMemo={todoMemo ?? ""} setTodoMemo={setTodoMemo} />
+        <ImageInput imageUrl={todoImageUrl} setImageUrl={setTodoImageUrl} />
+        <MemoInput memo={todoMemo ?? ""} setMemo={setTodoMemo} />
       </div>
-      <TodoEditActions id={id} isModified={isModified} />
+      <EditActions id={id} isModified={isModified} />
     </form>
   );
 };
 
-export default TodoEditForm;
+export default EditForm;

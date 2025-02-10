@@ -4,12 +4,12 @@ import Button from "@/components/common/Button";
 import check from "../../../../public/icons/check.svg";
 import x from "../../../../public/icons/X.svg";
 
-interface TodoEditActionsProps {
+interface EditActionsProps {
   id: number;
   isModified: boolean;
 }
 
-const TodoEditActions = ({ id, isModified }: TodoEditActionsProps) => {
+const EditActions = ({ id, isModified }: EditActionsProps) => {
   const router = useRouter();
 
   const onDeleteTodo = async () => {
@@ -49,4 +49,4 @@ const TodoEditActions = ({ id, isModified }: TodoEditActionsProps) => {
   );
 };
 
-export default TodoEditActions;
+export default EditActions;

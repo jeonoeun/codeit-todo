@@ -5,15 +5,12 @@ import plus_variant from "../../../../public/icons/plus_variant.svg";
 import edit from "../../../../public/icons/edit.svg";
 import img from "../../../../public/images/img.svg";
 
-interface TodoImageInputProps {
-  todoImageUrl: string;
-  setTodoImageUrl: (url: string) => void;
+interface ImageInputProps {
+  imageUrl: string;
+  setImageUrl: (url: string) => void;
 }
 
-const TodoImageInput = ({
-  todoImageUrl,
-  setTodoImageUrl,
-}: TodoImageInputProps) => {
+const ImageInput = ({ imageUrl, setImageUrl }: ImageInputProps) => {
   const onChangeImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -36,7 +33,7 @@ const TodoImageInput = ({
     try {
       const res = await uploadImage(formData);
       const uploadedUrl = res.url;
-      setTodoImageUrl(uploadedUrl);
+      setImageUrl(uploadedUrl);
     } catch (error) {
       console.error("❌ 이미지 업로드 중 오류 발생:", error);
       alert("이미지 업로드 중 오류가 발생했습니다. 다시 시도해 주세요.");
@@ -45,9 +42,9 @@ const TodoImageInput = ({
 
   return (
     <div className="relative w-full desktop:max-w-[384px] h-[311px] rounded-[24px] overflow-hidden">
-      {todoImageUrl ? (
+      {imageUrl ? (
         <Image
-          src={todoImageUrl}
+          src={imageUrl}
           alt="선택한 이미지"
           fill
           className="object-cover"
@@ -62,9 +59,9 @@ const TodoImageInput = ({
         <Button
           type="button"
           shape="circle"
-          icon={todoImageUrl ? edit : plus_variant}
-          variant={todoImageUrl ? "dark" : "slate"}
-          border={Boolean(todoImageUrl)}
+          icon={imageUrl ? edit : plus_variant}
+          variant={imageUrl ? "dark" : "slate"}
+          border={Boolean(imageUrl)}
           onClick={() => document.getElementById("file")?.click()}
         />
       </label>
@@ -80,4 +77,4 @@ const TodoImageInput = ({
   );
 };
 
-export default TodoImageInput;
+export default ImageInput;

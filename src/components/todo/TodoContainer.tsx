@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { getTodos } from "@/apis/todoApi";
 import { Todo } from "@/types/todo";
-import AddTodoForm from "./add/AddTodoForm";
 import TodoList from "./list/TodoList";
+import AddForm from "./add/AddForm";
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -29,7 +29,7 @@ const TodoContainer = () => {
 
   return (
     <>
-      <AddTodoForm setTodos={setTodos} />
+      <AddForm setTodos={setTodos} />
       <div className="grid grid-cols-1 gap-[48px] desktop:grid-cols-2 desktop:gap-[24px] overflow-hidden">
         <TodoList status="todo" todos={pendingTodos} setTodos={setTodos} />
         <TodoList status="done" todos={doneTodos} setTodos={setTodos} />

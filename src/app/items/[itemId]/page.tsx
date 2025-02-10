@@ -1,5 +1,5 @@
 import { getTodoById } from "@/apis/todoApi";
-import TodoEditForm from "@/components/todo/edit/TodoEditForm";
+import EditForm from "@/components/todo/edit/EditForm";
 
 const TodoDetailPage = async ({
   params,
@@ -13,7 +13,7 @@ const TodoDetailPage = async ({
     <main className="wrapper py-0">
       <div className="container-layout bg-white desktop:py-[24px] min-h-main">
         <div className="max-w-[996px] mx-auto">
-          <TodoEditForm {...todo} />
+          <EditForm {...todo} />
         </div>
       </div>
     </main>

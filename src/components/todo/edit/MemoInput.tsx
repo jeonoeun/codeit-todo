@@ -2,12 +2,12 @@ import Image from "next/image";
 import memoImage from "../../../../public/images/memo.svg";
 import { useEffect, useRef } from "react";
 
-interface TodoMemoInputProps {
-  todoMemo: string;
-  setTodoMemo: (value: string) => void;
+interface MemoInputProps {
+  memo: string;
+  setMemo: (value: string) => void;
 }
 
-const TodoMemoInput = ({ todoMemo, setTodoMemo }: TodoMemoInputProps) => {
+const MemoInput = ({ memo, setMemo }: MemoInputProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -16,16 +16,14 @@ const TodoMemoInput = ({ todoMemo, setTodoMemo }: TodoMemoInputProps) => {
       textarea.style.height = "auto";
       textarea.style.height = `${Math.min(textarea.scrollHeight, 229)}px`;
     }
-  }, [todoMemo]);
+  }, [memo]);
 
   const onChangeMemo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTodoMemo(e.target.value);
+    setMemo(e.target.value);
 
     const textarea = e.target;
     textarea.style.height = "auto";
-    console.log("초기화 후 높이:", textarea.style.height);
     textarea.style.height = `${Math.min(textarea.scrollHeight, 229)}px`;
-    console.log("변경된 높이:", textarea.style.height);
   };
 
   return (
@@ -36,7 +34,7 @@ const TodoMemoInput = ({ todoMemo, setTodoMemo }: TodoMemoInputProps) => {
         <div className="w-full h-full flex items-center justify-center">
           <textarea
             ref={textareaRef}
-            value={todoMemo ?? ""}
+            value={memo ?? ""}
             onChange={onChangeMemo}
             className="w-full overflow-y-auto resize-none text-center bg-transparent outline-none"
             style={{ minHeight: "auto", maxHeight: "229px" }}
@@ -47,4 +45,4 @@ const TodoMemoInput = ({ todoMemo, setTodoMemo }: TodoMemoInputProps) => {
   );
 };
 
-export default TodoMemoInput;
+export default MemoInput;

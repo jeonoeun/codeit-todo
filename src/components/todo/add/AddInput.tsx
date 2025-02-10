@@ -1,11 +1,11 @@
 import Input from "@/components/common/Input";
 
-interface TodoAddInputProps {
+interface AddInputProps {
   name: string;
   onChange: (value: string) => void;
 }
 
-const TodoAddInput = ({ name, onChange }: TodoAddInputProps) => {
+const AddInput = ({ name, onChange }: AddInputProps) => {
   return (
     <div className="todo-item todo-add">
       <Input mode="add" text={name} onChange={onChange} />
@@ -13,4 +13,4 @@ const TodoAddInput = ({ name, onChange }: TodoAddInputProps) => {
   );
 };
 
-export default TodoAddInput;
+export default AddInput;

@@ -3,8 +3,8 @@ import Image from "next/image";
 import { Todo } from "@/types/todo";
 import done from "../../../../public/images/done.svg";
 import todo from "../../../../public/images/todo.svg";
-import TodoListItem from "./TodoListItem";
 import EmptyList from "./EmptyList";
+import TodoItem from "./TodoItem";
 
 interface TodoListProps {
   status: "todo" | "done";
@@ -27,7 +27,7 @@ const TodoList = ({ status, todos, setTodos }: TodoListProps) => {
       <ul className="flex flex-col gap-[16px]">
         {todos.map((todo) => (
           <li key={todo.id}>
-            <TodoListItem todo={todo} setTodos={setTodos} />
+            <TodoItem todo={todo} setTodos={setTodos} />
           </li>
         ))}
       </ul>
