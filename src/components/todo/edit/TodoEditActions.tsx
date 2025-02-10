@@ -6,9 +6,10 @@ import x from "../../../../public/icons/X.svg";
 
 interface TodoEditActionsProps {
   id: number;
+  isModified: boolean;
 }
 
-const TodoEditActions = ({ id }: TodoEditActionsProps) => {
+const TodoEditActions = ({ id, isModified }: TodoEditActionsProps) => {
   const router = useRouter();
 
   const onDeleteTodo = async () => {
@@ -31,8 +32,9 @@ const TodoEditActions = ({ id }: TodoEditActionsProps) => {
         shape="square"
         text="수정 완료"
         icon={check}
-        variant="slate"
+        variant={isModified ? "lime" : "slate"}
         border
+        disabled={!isModified}
       />
       <Button
         type="button"

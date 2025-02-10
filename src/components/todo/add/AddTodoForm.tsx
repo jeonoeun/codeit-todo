@@ -6,6 +6,7 @@ import { Todo } from "@/types/todo";
 import TodoAddInput from "./TodoAddInput";
 import Button from "@/components/common/Button";
 import plus_black from "../../../../public/icons/plus_black.svg";
+import plus from "../../../../public/icons/plus.svg";
 
 interface AddTodoFormProps {
   setTodos: Dispatch<SetStateAction<Todo[]>>;
@@ -39,10 +40,11 @@ const AddTodoForm = ({ setTodos }: AddTodoFormProps) => {
         type="submit"
         shape="square"
         text="추가하기"
-        icon={plus_black}
-        variant="slate"
+        icon={inputValue.trim() ? plus : plus_black}
+        variant={inputValue.trim() ? "violet" : "slate"}
         border
         responsive
+        disabled={!inputValue.trim()}
       />
     </form>
   );

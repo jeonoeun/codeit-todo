@@ -1,7 +1,7 @@
 "use client";
 
 import { Todo } from "@/types/todo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { updateTodo } from "@/apis/todoApi";
 import { useRouter } from "next/navigation";
 import TodoEditInput from "./TodoEditInput";
@@ -12,12 +12,33 @@ import TodoEditActions from "./TodoEditActions";
 const TodoEditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
   const router = useRouter();
   const [todoName, setTodoName] = useState(name);
-  const [todoMemo, setTodoMemo] = useState(memo ?? "");
+  const [todoMemo, setTodoMemo] = useState(memo);
   const [todoImageUrl, setTodoImageUrl] = useState(imageUrl);
   const [isTodoCompleted, setIsTodoCompleted] = useState(isCompleted);
+  const [isModified, setIsModified] = useState(false);
+
+  useEffect(() => {
+    const isChanged =
+      todoName !== name ||
+      todoMemo !== memo ||
+      todoImageUrl !== imageUrl ||
+      isTodoCompleted !== isCompleted;
+
+    setIsModified(isChanged);
+  }, [
+    todoName,
+    todoMemo,
+    todoImageUrl,
+    isTodoCompleted,
+    name,
+    memo,
+    imageUrl,
+    isCompleted,
+  ]);
 
   const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isModified) return;
 
     const updatedTodo = {
       name: todoName,
@@ -55,9 +76,9 @@ const TodoEditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
           todoImageUrl={todoImageUrl}
           setTodoImageUrl={setTodoImageUrl}
         />
-        <TodoMemoInput todoMemo={todoMemo} setTodoMemo={setTodoMemo} />
+        <TodoMemoInput todoMemo={todoMemo ?? ""} setTodoMemo={setTodoMemo} />
       </div>
-      <TodoEditActions id={id} />
+      <TodoEditActions id={id} isModified={isModified} />
     </form>
   );
 };
