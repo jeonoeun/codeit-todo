@@ -7,7 +7,7 @@
 }
 
 .todo-detail {
-    @apply justify-center h-[64px] py-[16px] 
+    @apply justify-center h-[64px] py-[16px]
 }
 
 .todo-add {
