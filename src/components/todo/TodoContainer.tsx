@@ -1,24 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getTodos } from "@/apis/todoApi";
-import { Todo } from "@/types/todo";
+import { useEffect } from "react";
 import TodoList from "./list/TodoList";
 import AddForm from "./add/AddForm";
+import { useTodoStore } from "@/store/useTodoStore";
 
 const TodoContainer = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  const fetchTodos = async () => {
-    try {
-      const items = await getTodos();
-      setTodos(items);
-    } catch (error) {
-      console.error("❌ 할 일 목록 가져오기 실패:", error);
-      alert("할 일 목록 가져오기에 실패했습니다. 다시 시도해주세요.");
-      setTodos([]);
-    }
-  };
+  const { todos, fetchTodos } = useTodoStore();
 
   useEffect(() => {
     fetchTodos();
@@ -29,10 +17,10 @@ const TodoContainer = () => {
 
   return (
     <>
-      <AddForm setTodos={setTodos} />
+      <AddForm />
       <div className="grid grid-cols-1 gap-[48px] desktop:grid-cols-2 desktop:gap-[24px] overflow-hidden">
-        <TodoList status="todo" todos={pendingTodos} setTodos={setTodos} />
-        <TodoList status="done" todos={doneTodos} setTodos={setTodos} />
+        <TodoList status="todo" todos={pendingTodos} />
+        <TodoList status="done" todos={doneTodos} />
       </div>
     </>
   );
