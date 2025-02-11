@@ -13,11 +13,3 @@
 .todo-add {
     @apply h-[56px] shadow-[4px_4px_0px_#0F172A] px-[24px] py-[17px] bg-slate-100
 }
-
-.input-base {
-    @apply w-full outline-none border-none bg-transparent placeholder:text-slate-500
-}
-
-.input-detail {
-    @apply w-auto underline text-20-bold
-}

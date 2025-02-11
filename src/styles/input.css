@@ -1,0 +1,7 @@
+.input-base {
+    @apply w-full outline-none border-none bg-transparent placeholder:text-slate-500
+}
+
+.input-detail {
+    @apply w-auto underline text-20-bold
+}
