@@ -2,15 +2,16 @@
 
 import { Todo } from "@/types/todo";
 import { useEffect, useState } from "react";
-import { updateTodo } from "@/apis/todoApi";
 import { useRouter } from "next/navigation";
 import EditInput from "./EditInput";
 import ImageInput from "./ImageInput";
 import MemoInput from "./MemoInput";
 import EditActions from "./EditActions";
+import { useTodoStore } from "@/store/useTodoStore";
 
 const EditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
   const router = useRouter();
+  const { updateTodoItem } = useTodoStore();
   const [todoName, setTodoName] = useState(name);
   const [todoMemo, setTodoMemo] = useState(memo);
   const [todoImageUrl, setTodoImageUrl] = useState(imageUrl);
@@ -36,7 +37,7 @@ const EditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
     isCompleted,
   ]);
 
-  const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isModified) return;
 
@@ -51,18 +52,18 @@ const EditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
     if (!confirmDelete) return;
 
     try {
-      await updateTodo(id, updatedTodo);
+      await updateTodoItem(id, updatedTodo);
       alert("✅ 할 일이 수정되었습니다!");
       router.push("/");
     } catch (error) {
-      console.error("❌ 업데이트 중 오류 발생:", error);
-      alert("❌ 수정 중에 오류가 발생했어요. 다시 시도해 주세요.");
+      console.error("할 일 수정 중 오류 발생:", error);
+      alert("❌ 할 일 수정 중에 오류가 발생했어요. 다시 시도해 주세요.");
     }
   };
 
   return (
     <form
-      onSubmit={onSubmitForm}
+      onSubmit={handleSubmit}
       className="flex flex-col gap-[16px] tablet:gap-[24px]"
     >
       <EditInput

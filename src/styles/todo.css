@@ -19,5 +19,5 @@
 }
 
 .input-detail {
-    @apply max-w-[138px] underline text-20-bold
+    @apply w-auto underline text-20-bold
 }

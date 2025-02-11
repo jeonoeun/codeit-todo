@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { Todo } from "@/types/todo";
 import done from "../../../../public/images/done.svg";
@@ -9,10 +8,9 @@ import TodoItem from "./TodoItem";
 interface TodoListProps {
   status: "todo" | "done";
   todos: Todo[];
-  setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-const TodoList = ({ status, todos, setTodos }: TodoListProps) => {
+const TodoList = ({ status, todos }: TodoListProps) => {
   return (
     <div>
       <Image
@@ -27,7 +25,7 @@ const TodoList = ({ status, todos, setTodos }: TodoListProps) => {
       <ul className="flex flex-col gap-[16px]">
         {todos.map((todo) => (
           <li key={todo.id}>
-            <TodoItem todo={todo} setTodos={setTodos} />
+            <TodoItem todo={todo} />
           </li>
         ))}
       </ul>

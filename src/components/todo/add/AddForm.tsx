@@ -1,31 +1,24 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
-import { addTodo } from "@/apis/todoApi";
-import { Todo } from "@/types/todo";
+import { useState } from "react";
 import TodoAddInput from "./AddInput";
 import Button from "@/components/common/Button";
 import plus_black from "../../../../public/icons/plus_black.svg";
 import plus from "../../../../public/icons/plus.svg";
+import { useTodoStore } from "@/store/useTodoStore";
 
-interface AddFormProps {
-  setTodos: Dispatch<SetStateAction<Todo[]>>;
-}
-
-const AddForm = ({ setTodos }: AddFormProps) => {
+const AddForm = () => {
+  const { addNewTodo } = useTodoStore();
   const [inputValue, setInputValue] = useState("");
 
   const handleAddTodo = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!inputValue.trim()) return;
-
     try {
-      const todo = await addTodo(inputValue);
+      await addNewTodo(inputValue);
       setInputValue("");
-      setTodos((prevTodos) => [todo, ...prevTodos]);
     } catch (error) {
-      console.error("할 일 추가 실패:", error);
+      console.error("할 일 추가 중 오류 발생:", error);
       alert("❌ 할 일을 추가하는 중에 오류가 발생했어요. 다시 시도해 주세요.");
     }
   };

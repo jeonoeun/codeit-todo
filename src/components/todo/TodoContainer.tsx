@@ -9,8 +9,19 @@ const TodoContainer = () => {
   const { todos, fetchTodos } = useTodoStore();
 
   useEffect(() => {
-    fetchTodos();
-  }, []);
+    const fetchData = async () => {
+      try {
+        await fetchTodos();
+      } catch (error) {
+        console.error("할 일 목록 가져오기 실패:", error);
+        alert(
+          "❌ 할 일 목록을 불러오는 중에 오류가 발생했어요. 다시 시도해주세요."
+        );
+      }
+    };
+
+    fetchData();
+  }, [fetchTodos]);
 
   const pendingTodos = todos.filter((todo) => !todo.isCompleted);
   const doneTodos = todos.filter((todo) => todo.isCompleted);
