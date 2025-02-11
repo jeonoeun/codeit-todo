@@ -15,9 +15,21 @@ export const useTodoStore = create<TodoState>((set) => ({
   todos: [],
 
   fetchTodos: async () => {
+    let allTodos: Todo[] = [];
+    let pageNum = 1;
+    let hasMore = true;
+
     try {
-      const items = await getTodos();
-      set(() => ({ todos: items }));
+      while (hasMore) {
+        const newTodos = await getTodos({ pageNum, pageSize: 10 });
+        allTodos = [...allTodos, ...newTodos];
+        pageNum += 1;
+
+        if (newTodos.length === 0) {
+          hasMore = false;
+        }
+      }
+      set(() => ({ todos: allTodos }));
     } catch (error) {
       throw error;
     }
