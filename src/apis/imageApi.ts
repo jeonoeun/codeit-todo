@@ -1,6 +1,7 @@
 const BASE_URL = "https://assignment-todolist-api.vercel.app/api";
 const TENANT_ID = "jeonoeun";
 
+// 이미지를 업로드하는 함수
 export const uploadImage = async (
   formData: FormData
 ): Promise<{ url: string }> => {

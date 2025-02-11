@@ -8,6 +8,7 @@ interface EmptyListProps {
   status: "todo" | "done";
 }
 
+// 할 일 목록이 비어 있을 때 표시되는 컴포넌트
 const EmptyList = ({ status }: EmptyListProps) => {
   const emptyListInfo = {
     todo: {
@@ -24,7 +25,7 @@ const EmptyList = ({ status }: EmptyListProps) => {
     <div className="flex items-center justify-center desktop:py-[48px]">
       <div>
         <div className="relative w-[120px] h-[120px] mb-[16px] mx-auto tablet:w-[240px] tablet:h-[240px] tablet:mb-[24px]">
-          {/* 기본 이미지 */}
+          {/* 데스크탑, 태블릿 이미지 */}
           <Image
             src={emptyListInfo[status].images.large}
             alt=""

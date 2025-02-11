@@ -42,6 +42,8 @@ const Button = ({
       )}
     >
       <Image src={icon} alt={text ? `${text} 아이콘` : "버튼 아이콘"} />
+
+      {/* 텍스트가 있을 경우 렌더링, 모바일에서는 숨김 */}
       {text && (
         <span className={clsx(responsive && "hidden tablet:block")}>
           {text}

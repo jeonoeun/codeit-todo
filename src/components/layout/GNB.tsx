@@ -8,7 +8,7 @@ const GNB = () => {
     <nav className="wrapper border-b border-slate-200 h-[60px] bg-white py-0">
       <div className="container-layout flex items-center py-0">
         <Link href="/">
-          {/* 데스크탑, 태블릿 */}
+          {/* 데스크탑, 태블릿에서 보이는 큰 로고 */}
           <Image
             src={logo_large}
             alt="메인 로고"
@@ -18,7 +18,7 @@ const GNB = () => {
             className="hidden tablet:block"
           />
 
-          {/* 모바일 */}
+          {/* 모바일에서 보이는 작은 로고 */}
           <Image
             src={logo_small}
             alt="모바일 로고"

@@ -16,6 +16,7 @@ const EditInput = ({
   setIsTodoCompleted,
   onChange,
 }: EditInputProps) => {
+  // 완료 상태를 토글하는 함수
   const toggleCompleted = () => {
     setIsTodoCompleted((prev) => !prev);
   };

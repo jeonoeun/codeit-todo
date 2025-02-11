@@ -13,6 +13,7 @@ interface TodoListProps {
 const TodoList = ({ status, todos }: TodoListProps) => {
   return (
     <div>
+      {/* 상태에 따른 헤더 이미지 표시 */}
       <Image
         src={status === "todo" ? todo : done}
         alt=""
@@ -22,6 +23,7 @@ const TodoList = ({ status, todos }: TodoListProps) => {
         className="mb-[16px]"
       />
 
+      {/* 할 일 목록 */}
       <ul className="flex flex-col gap-[16px]">
         {todos.map((todo) => (
           <li key={todo.id}>
@@ -30,6 +32,7 @@ const TodoList = ({ status, todos }: TodoListProps) => {
         ))}
       </ul>
 
+      {/* 목록이 비어 있을 경우 빈 목록 UI 표시 */}
       {todos.length === 0 && <EmptyList status={status} />}
     </div>
   );

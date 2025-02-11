@@ -4,11 +4,13 @@
 
 @import "./button.css";
 @import "./todo.css";
+@import "./input.css";
 
 body {
   @apply min-h-screen bg-gray-50 text-slate-900;
 }
 
+/* textarea 스크롤바 스타일 */
 textarea::-webkit-scrollbar {
   width: 4px;
 }
