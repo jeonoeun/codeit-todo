@@ -1,37 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Todo List
 
-## Getting Started
+할 일 목록을 관리하는 To Do 서비스입니다. <br >
+(코드잇 스프린트 프론트엔드 단기심화 과정 사전 과제입니다.)
 
-First, run the development server:
+## 주요 기능
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. 할 일 목록 페이지
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **목록 조회**: 진행 중인 할 일과 완료된 할 일이 구분되어 표시됨.
+- **할 일 추가**: 입력창에서 할 일을 입력 후 추가하기 버튼 클릭 또는 엔터 입력 시 새로운 할 일이 생성됨.
+- **할 일 완료 처리**: 진행 중인 할 일의 체크박스를 클릭하면 완료 상태로 변경되며, 완료된 할 일의 체크박스를 클릭하면 다시 진행 중 상태로 변경됨.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. 할 일 상세 페이지
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **`할 일 수정`**:
+- **`할 일 삭제`**:
 
-## Learn More
+## 기술 스택
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# codeit-todo
+![Image](https://github.com/user-attachments/assets/1d6692b6-92a3-4a90-8b8d-a3350f841d53)
