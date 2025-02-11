@@ -3,17 +3,11 @@ import { Todo } from "@/types/todo";
 const BASE_URL = "https://assignment-todolist-api.vercel.app/api";
 const TENANT_ID = "jeonoeun";
 
-export const getTodos = async ({
-  pageNum = 1,
-  pageSize = 10,
-}): Promise<Todo[]> => {
+export const getTodos = async (pageNum: number): Promise<Todo[]> => {
   try {
-    const res = await fetch(
-      `${BASE_URL}/${TENANT_ID}/items?page=${pageNum}&size=${pageSize}`,
-      {
-        method: "GET",
-      }
-    );
+    const res = await fetch(`${BASE_URL}/${TENANT_ID}/items?page=${pageNum}`, {
+      method: "GET",
+    });
 
     if (!res.ok) {
       const errorMessage = await res.text();

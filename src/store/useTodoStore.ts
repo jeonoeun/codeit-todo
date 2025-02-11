@@ -18,18 +18,20 @@ export const useTodoStore = create<TodoState>((set) => ({
     let allTodos: Todo[] = [];
     let pageNum = 1;
     let hasMore = true;
+    const pageSize = 10;
 
     try {
       while (hasMore) {
-        const newTodos = await getTodos({ pageNum, pageSize: 10 });
+        const newTodos = await getTodos(pageNum);
         allTodos = [...allTodos, ...newTodos];
-        pageNum += 1;
 
-        if (newTodos.length === 0) {
+        if (newTodos.length < pageSize) {
           hasMore = false;
+        } else {
+          pageNum += 1;
         }
       }
-      set(() => ({ todos: allTodos }));
+      set({ todos: allTodos });
     } catch (error) {
       throw error;
     }
