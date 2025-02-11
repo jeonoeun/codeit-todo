@@ -6,10 +6,10 @@ import { useTodoStore } from "@/store/useTodoStore";
 
 interface EditActionsProps {
   id: number;
-  isModified: boolean;
+  disabled?: boolean;
 }
 
-const EditActions = ({ id, isModified }: EditActionsProps) => {
+const EditActions = ({ id, disabled }: EditActionsProps) => {
   const router = useRouter();
   const { deleteTodoItem } = useTodoStore();
 
@@ -33,9 +33,9 @@ const EditActions = ({ id, isModified }: EditActionsProps) => {
         shape="square"
         text="수정 완료"
         icon={check}
-        variant={isModified ? "lime" : "slate"}
+        variant={disabled ? "slate" : "lime"}
         border
-        disabled={!isModified}
+        disabled={disabled}
       />
       <Button
         type="button"

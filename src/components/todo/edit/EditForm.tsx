@@ -43,7 +43,7 @@ const EditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
 
     const updatedTodo = {
       name: todoName,
-      memo: todoMemo,
+      memo: todoMemo ?? "",
       imageUrl: todoImageUrl ?? "",
       isCompleted: isTodoCompleted,
     };
@@ -53,7 +53,6 @@ const EditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
 
     try {
       await updateTodoItem(id, updatedTodo);
-      alert("✅ 할 일이 수정되었습니다!");
       router.push("/");
     } catch (error) {
       console.error("할 일 수정 중 오류 발생:", error);
@@ -76,7 +75,7 @@ const EditForm = ({ id, name, memo, imageUrl, isCompleted }: Todo) => {
         <ImageInput imageUrl={todoImageUrl} setImageUrl={setTodoImageUrl} />
         <MemoInput memo={todoMemo ?? ""} setMemo={setTodoMemo} />
       </div>
-      <EditActions id={id} isModified={isModified} />
+      <EditActions id={id} disabled={!isModified || todoName.trim() === ""} />
     </form>
   );
 };

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import TodoAddInput from "./AddInput";
 import Button from "@/components/common/Button";
 import plus_black from "../../../../public/icons/plus_black.svg";
 import plus from "../../../../public/icons/plus.svg";
 import { useTodoStore } from "@/store/useTodoStore";
+import AddInput from "./AddInput";
 
 const AddForm = () => {
   const { addNewTodo } = useTodoStore();
@@ -28,7 +28,7 @@ const AddForm = () => {
       onSubmit={handleAddTodo}
       className="flex items-center gap-[8px] tablet:gap-[16px] mb-[24px] tablet:mb-[40px]"
     >
-      <TodoAddInput name={inputValue} onChange={setInputValue} />
+      <AddInput name={inputValue} onChange={setInputValue} />
       <Button
         type="submit"
         shape="square"
