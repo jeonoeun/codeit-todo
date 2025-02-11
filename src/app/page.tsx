@@ -1,10 +1,12 @@
-import TodoContainer from "@/components/todo/TodoContainer";
+import AddForm from "@/components/todo/add/AddForm";
+import TodoListContainer from "@/components/todo/list/TodoListContainer";
 
 export default function Home() {
   return (
     <main className="wrapper">
       <div className="container-layout">
-        <TodoContainer />
+        <AddForm />
+        <TodoListContainer />
       </div>
     </main>
   );
