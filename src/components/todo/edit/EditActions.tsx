@@ -1,8 +1,7 @@
-import { useRouter } from "next/navigation";
 import Button from "@/components/common/Button";
 import check from "../../../../public/icons/check.svg";
 import x from "../../../../public/icons/X.svg";
-import { useTodoStore } from "@/store/useTodoStore";
+import { useTodos } from "@/hooks/useTodos";
 
 interface EditActionsProps {
   id: number;
@@ -10,21 +9,13 @@ interface EditActionsProps {
 }
 
 const EditActions = ({ id, disabled }: EditActionsProps) => {
-  const router = useRouter();
-  const { deleteTodoItem } = useTodoStore();
+  const { deleteTodoItem } = useTodos();
 
   // 할 일 삭제 핸들러
   const handleDeleteTodo = async () => {
     const confirmDelete = window.confirm("할 일을 삭제할까요?");
     if (!confirmDelete) return;
-
-    try {
-      await deleteTodoItem(id); // 할 일 삭제
-      router.push("/"); // 홈으로 이동
-    } catch (error) {
-      console.error("할 일 삭제 중 오류 발생:", error);
-      alert("❌ 할 일을 삭제하는 중에 오류가 발생했어요. 다시 시도해 주세요.");
-    }
+    deleteTodoItem(id);
   };
 
   return (

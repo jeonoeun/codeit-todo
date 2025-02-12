@@ -49,13 +49,13 @@
 
 <img width="569" alt="tech stack" src="https://github.com/user-attachments/assets/be0250c6-0e96-4949-a474-324057b574fc">
 
-### 선정 이유
+### 선택 이유
 
-- **`Tailwind CSS`**: 직관적인 클래스 기반 스타일링으로 빠른 개발과 유지보수가 용이하여 선정하였습니다.
+- **`Tailwind CSS`**: 직관적인 클래스 기반 스타일링으로 빠른 개발과 유지보수가 용이하여 선택하였습니다.
 
-- **`Zustand`**: 가벼운 상태 관리 라이브러리로 불필요한 리렌더링 없이 직관적인 전역 상태 관리를 제공하며, props drilling 없이 효율적으로 상태를 공유할 수 있어 선정하였습니다.
+- **`Zustand`**: 가벼운 상태 관리 라이브러리로 불필요한 리렌더링 없이 직관적인 전역 상태 관리를 제공하며, props drilling 없이 효율적으로 상태를 공유할 수 있어 선택하였습니다.
 
-- **`Vercel`**: Next.js와 최적화된 배포 환경을 제공하며, 간편한 CI/CD 및 글로벌 배포가 가능하여 선정하였습니다.
+- **`Vercel`**: Next.js와 최적화된 배포 환경을 제공하며, 간편한 CI/CD 및 글로벌 배포가 가능하여 선택하였습니다.
 
 ## 폴더 구조
 
@@ -85,6 +85,8 @@
 │           ├── TodoItem.tsx
 │           ├── TodoList.tsx
 │           └── TodoListContainer.tsx
+├── hooks
+│   └── useTodo.ts
 ├── store
 │   └── useTodoStore.ts
 ├── styles

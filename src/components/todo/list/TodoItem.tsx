@@ -1,7 +1,7 @@
 import { Todo } from "@/types/todo";
 import { useRouter } from "next/navigation";
 import CheckBox from "@/components/common/CheckBox";
-import { useTodoStore } from "@/store/useTodoStore";
+import { useTodos } from "@/hooks/useTodos";
 
 interface TodoItemProps {
   todo: Todo;
@@ -9,18 +9,12 @@ interface TodoItemProps {
 
 const TodoItem = ({ todo }: TodoItemProps) => {
   const router = useRouter();
-  const { toggleTodoStatus } = useTodoStore();
+  const { toggleTodoStatus } = useTodos();
 
   // 할 일 완료 상태 토글 핸들러
   const handleToggleStatus = async (e: React.MouseEvent) => {
     e.stopPropagation(); // 부모 요소의 클릭 이벤트 방지
-
-    try {
-      await toggleTodoStatus(todo.id, !todo.isCompleted); // 상태 토글 API 호출
-    } catch (error) {
-      console.error("할 일 상태 변경 중 오류 발생:", error);
-      alert("❌ 할 일 상태 변경 중에 오류가 발생했어요. 다시 시도해 주세요.");
-    }
+    toggleTodoStatus(todo.id, !todo.isCompleted); // 상태 토글 API 호출
   };
 
   return (

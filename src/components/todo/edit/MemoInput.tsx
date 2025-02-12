@@ -8,9 +8,9 @@ interface MemoInputProps {
 }
 
 const MemoInput = ({ memo, setMemo }: MemoInputProps) => {
-  const textareaRef = useRef<HTMLTextAreaElement>(null); // textarea 요소 참조
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // 메모 입력 필드의 높이를 자동으로 조절. 메모 값이 변경될 때마다 실행됨.
+  // 메모 입력 필드(textarea)의 높이를 자동으로 조절. 메모 값이 변경될 때마다 실행됨.
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
